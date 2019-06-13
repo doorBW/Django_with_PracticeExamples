@@ -1,0 +1,75 @@
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Boot strap -->
+    <!-- 합쳐지고 최소화된 최신 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+    <style>
+        .content{
+            height: 75%;
+        }
+        .messageDiv{
+            margin-top: 20px;
+            margin-bottom: 50px;
+        }
+        .toDoDiv{
+
+        }
+        .custom-btn{
+            font-size: 10px;
+        }
+        .panel-footer{
+            height:10%;
+            color:gray;
+        }
+    </style>
+
+    <title>To-Do</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="page-header">
+                <h1>To-do List <small>with Django</small></h1>
+            </div>
+        </div>
+        <div class="content">
+            <div class="messageDiv">
+                <form action="" method="POST">{% csrf_token %}
+                    <div class="input-group">
+                        <input id="todoContent" name="todoContent" type="text" class="form-control" placeholder="메모할 내용을 적어주세요">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit">메모하기!</button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+
+            <div class="toDoDiv">
+                <ul class="list-group">
+
+                    <form action="" method="GET">
+                        <div class="input-group" name='todo1'>
+                            <li class="list-group-item">메모한 내용은 여기에 기록될 거에요</li>
+                            <input type="hidden" id="todoNum" name="todoNum" value="1"></input>
+                            <span class="input-group-addon">
+                                <button type="submit" class="custom-btn btn btn-danger">완료</button>
+                            </span>
+                        </div>
+                    </form>
+
+                </ul>
+            </div>
+        </div>
+        <div class="panel-footer">
+            실전예제로 배우는 Django. Project1-TodoList
+        </div>
+    </div>
+</body>
+</html>
