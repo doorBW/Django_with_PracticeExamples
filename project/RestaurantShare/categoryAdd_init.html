@@ -1,0 +1,110 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Boot strap -->
+    <!-- 합쳐지고 최소화된 최신 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+    <style>
+        .container{
+            margin-top: 20px;
+        }
+        .jumbotron{
+            padding-top:15px;
+            padding-bottom:15px;
+        }
+        .content{
+            min-height: 60%;
+            margin: auto;
+        }
+        .row{
+            margin:0;
+            padding:0;
+        }
+        .inputDiv{
+            margin-left: 200px;
+            margin-right: 200px;
+            margin-bottom: 50px;
+        }
+        .input-group-addon{
+            width:700px;
+        }
+        .resCategory{
+            width:300px;
+            border-radius: 10px;
+        }
+        .input-group{
+            margin:10px;
+            width: 730px;
+        }
+        .resAddBtn{
+            float:right;
+        }
+
+        .panel-footer{
+            margin-top: 50px;
+            height: 10%;
+        }
+    </style>
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous">
+    </script>
+    <title>맛집 추가하기</title>
+    <script>
+        function categoryAddCheckFrom(){
+            if($('#categoryName').val().length <= 0){
+                alert('추가할 카테고리 이름을 입력해주세요.')
+                $('#categoryName').focus()
+                return false;
+            }
+            else{
+                return true;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="jumbotron">
+                <h1>카테고리 추가하기</h1>
+                <p>made by Django</p>
+            </div>
+        </div>
+        <div class="content">
+            
+                <div class="inputDiv">
+                    <div class="input-group">
+                        <span class="input-group-addon" style="border:1px solid #ccc; border-radius: 4px;">기본 그룹</span>
+                    </div>
+
+                    <form action="" method="POST">{% csrf_token %}
+                        <div class="input-group">
+                            <span class="input-group-addon" id="" style="border:1px solid #ccc; border-radius: 4px;">한식</span>
+                            <input type="submit" class="resAddBtn btn btn-danger" role="button" value="삭제"/>
+                        </div>
+                    </form>
+
+                    <form action="" method="GET" onsubmit="return categoryAddCheckFrom();">
+                        <div class="input-group">
+                            <input type="submit" class="resAddBtn btn btn-success" role="button" value="추가"/>
+                            <input id="categoryName" name="categoryName" type="text" class="form-control" placeholder="추가할 카테고리명을 입력하세요." style="width:650px; float:right; border-radius:4px;">
+                        </div>
+                    </form>
+                    <a href ="/" class="resAddBtn btn btn-info" role="button">홈으로</a>
+                </div>
+            
+        </div>
+        <div class="panel-footer">
+            실전예제로 배우는 Django. Project1-TodoList
+        </div>
+    </div>
+</body>
+</html>

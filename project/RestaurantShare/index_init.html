@@ -1,0 +1,308 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Boot strap -->
+    <!-- 합쳐지고 최소화된 최신 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+    <style>
+        .container{
+            margin-top: 20px;
+        }
+        .jumbotron{
+            padding-top:15px;
+            padding-bottom:15px;
+        }
+        .content{
+            min-height: 60%;
+            margin: auto;
+        }
+        .row{
+            margin:0;
+            padding:0;
+        }
+        .subTitle{
+            font-size:17px;
+        }
+        .addBtn{
+            width: 400px;
+            margin: 10px;
+        }
+        .restaurantInfoDiv{
+            margin-left:30px;
+            float:left;
+        }
+        .infoHeaderDiv{
+            border-bottom: 1px solid #eee;
+            float:left;
+        }
+        .infoHeaderDiv h1{
+            margin:0;
+        }
+        .categoryAddDiv{
+            float:left;
+            margin-left:25px;
+        }
+        .categoryAddBtn{
+            height: 40px;
+            width: 40px;
+            font-size:20px;
+            padding:3px;
+
+        }
+        .restaurantListDiv{
+            margin-top: 25px;
+            width: 500px;
+        }
+        a{
+            text-decoration: none;
+        }
+        .active{
+            color: #fff;
+            background-color: #337ab7;
+        }
+        .deactive{
+            color: #337ab7;
+            background-color: #fff;
+        }
+        .category{
+            position: relative;
+            display: block;
+            cursor: pointer;
+            border-radius: 4px;
+            padding: 10px 15px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+        .deactive:hover{
+            background-color: #D3D3D3;
+        }
+        .restaurantList{
+            display:none;
+        }
+        ul.restaurantList li{
+            background-color:white;
+        }
+        ul.restaurantList li:hover{
+            background-color:#D3D3D3;
+            cursor: pointer;
+        }
+        .input-group{
+            margin: 10px;
+        }
+
+        .emailDiv{
+            float:left;
+            margin-left:25px;
+        }
+        .emailContentGroup{
+            margin:5px;
+        }
+        .emailHeaderDiv h1{
+            margin:0;
+        }
+        .sendBtn{
+            width: 400px;
+            margin: 10px;
+        }
+        .emailContentGroup h4{
+            font-weight: bold;
+            margin:5px;
+        }
+        .emailContentHeader{
+            margin: 10px;
+        }
+        .emailContent{
+            margin: 10px;
+
+        }
+        .inputReceiver{
+            width: 350px;
+        }
+        .inputReceiverSub{
+            font-size: 12px;
+            font-weight: 100;
+        }
+        .inputTitle{
+            width: 350px;
+        }
+        .inputContent{
+            resize: none;
+        }
+
+
+        .panel-footer{
+            margin-top: 50px;
+            height: 10%;
+        }
+    </style>
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous">
+    </script>
+    <script>
+        $(document).ready(function(){
+            $('.restaurantListDiv>li').click(function(){
+                if ($(this).hasClass('active')){
+                    $(this).addClass('deactive')
+                    $(this).removeClass('active')
+                    $(this).next('ul').slideUp();
+                }else{
+                    $(this).removeClass('deactive')
+                    $(this).addClass('active')
+                    $(this).next('ul').slideDown();
+                }
+
+                
+            })
+        });
+
+        function emailCheckForm(){
+            var isCheckLessThanOne = true
+            for(i = 1; i <= 6; i++){
+                var idString = "check"+i
+                var isChecked = $("#"+idString).is(':checked')
+                console.log("check"+i,isChecked)
+                if (isChecked){
+                    isCheckLessThanOne = false
+                    break
+                }
+            }
+            console.log(isCheckLessThanOne)
+            if($('#inputReceiver').val().length <= 0){
+                alert("이메일 수신자를 1명 이상 입력해주세요.")
+                $('#inputReceiver').focus()
+                return false
+            }else if($('#inputTitle').val().length <= 0){
+                alert("이메일 제목을 입력해주세요.")
+                $('#inputTitle').focus()
+                return false
+            }else if(isCheckLessThanOne){
+                alert("맛집을 하나 이상 선택해주세요.")
+                return false
+            }else{
+                return true;
+            }
+        }
+
+    </script>
+    <title>맛집 공유 사이트</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="jumbotron">
+                <h1>맛집 공유 사이트</h1>
+                <p>made by Django</p>
+            </div>
+        </div>
+        <div class="content">
+            <div class="row">
+                <form action="" method="POST" onsubmit="return emailCheckForm();"> {% csrf_token %}
+                    <div class="restaurantInfoDiv ">
+                        <div class="row">
+                            <div class="infoHeaderDiv">
+                                <h1>Category <small class="subTitle">상세내용을 보려면 클릭하세요.</small></h1>
+                            </div>
+                            <div class="categoryAddDiv">
+                                    <a href="categoryAdd/" class="categoryAddBtn btn btn-info" role="button">+</a>
+                            </div>
+                        </div>
+                        
+                        <ul class="restaurantListDiv nav nav-pills nav-stacked">
+                            <li class="category deactive">한식</li>
+                            <ul class="restaurantList">
+
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <input name="check1" id="check1" type="checkbox">
+                                    </span>
+                                    <a href="restaurantDetail/1"><input name="res1" id="res1" type="text" class="form-control" disabled style="cursor: pointer;" value="1"></a>
+                                </div>
+
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <input name="check2" id="check2" type="checkbox">
+                                    </span>
+                                    <a href="restaurantDetail/2"><input name="res2" id="res2" type="text" class="form-control" disabled style="cursor: pointer;" value="2"></a>
+                                </div>
+
+                            </ul>
+                            <li class="category deactive">중식</li>
+                            <ul class="restaurantList">
+                                
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <input name="check3" id="check3" type="checkbox">
+                                    </span>
+                                    <a href="restaurantDetail/3"><input name="res3" id="res3" type="text" class="form-control" disabled style="cursor: pointer;" value="1"></a>
+                                </div>
+
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <input name="check4" id="check4" type="checkbox">
+                                    </span>
+                                    <a href="restaurantDetail/4"><input name="res4" id="res4" type="text" class="form-control" disabled style="cursor: pointer;" value="2"></a>
+                                </div>
+
+                            </ul>
+                            <li class="category deactive">일식</li>
+                            <ul class="restaurantList">
+                                
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <input name="check5" id="check5" type="checkbox">
+                                    </span>
+                                    <a href="restaurantDetail/5"><input name="res5" id="res5" type="text" class="form-control" disabled style="cursor: pointer;" value="1"></a>
+                                </div>
+
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <input name="check6" id="check6" type="checkbox">
+                                    </span>
+                                    <a href="restaurantDetail/6"><input name="res6" id="res6" type="text" class="form-control" disabled style="cursor: pointer;" value="2"></a>
+                                </div>
+            
+                            </ul>
+                        </ul>
+                        <a href="restaurantAdd/" class="sendBtn btn btn-info" role="button">맛집 추가하기</a>
+                    </div>
+                    <div class="emailDiv">
+                        <div class="emailHeaderDiv">
+                            <h1>Email <small class="subTitle">수신자와 제목,인사말을 적어주세요.</small></h1>
+                        </div>
+                        <div class="emailContentGroup">
+
+                            <div class="emailContentHeader">
+                                <h4>수신자 <span class="inputReceiverSub">콤마(,)로 구분해서 여러명에게 보낼 수 있습니다.</span></h4>
+                                <input class="inputReceiver" name="inputReceiver" id="inputReceiver" type="text" placeholder="수신자를 적어주세요."/><br/>
+                            </div>
+                            <div class="emailContentHeader">
+                                <h4>제목</h4>
+                                <input class="inputTitle" name="inputTitle" id="inputTitle" type="text" placeholder="제목을 적어주세요."/><br/>
+                            </div>
+                            <div class="emailContent">
+                                <h4>인사말</h4>
+                                <textarea class="inputContent" name="inputContent" id="inputContent" cols="50" rows="10" placeholder="인사말을 적어주세요."></textarea>
+                            </div>
+                            
+                        </div>
+                        <div>
+                            <input type="submit" class="sendBtn btn btn-info" role="button" value="이메일 발송하기"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="panel-footer">
+            실전예제로 배우는 Django. Project1-TodoList
+        </div>
+    </div>
+</body>
+</html>

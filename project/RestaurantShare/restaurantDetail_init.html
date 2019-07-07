@@ -1,0 +1,122 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Boot strap -->
+    <!-- 합쳐지고 최소화된 최신 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+    <style>
+        .container{
+            margin-top: 20px;
+        }
+        .jumbotron{
+            padding-top:15px;
+            padding-bottom:15px;
+        }
+        .content{
+            min-height: 60%;
+            margin: auto;
+        }
+        .row{
+            margin:0;
+            padding:0;
+        }
+        .inputDiv{
+            margin-left: 200px;
+            margin-right: 200px;
+            margin-bottom: 50px;
+        }
+        select[size]{
+            height: 28px;
+        }
+        .resCategory{
+            width:300px;
+            border-radius: 10px;
+        }
+        .input-group{
+            margin:10px;
+            width: 730px;
+        }
+        .resAddBtn{
+            float:right;
+        }
+
+        .panel-footer{
+            margin-top: 50px;
+            height: 10%;
+        }
+    </style>
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous">
+    </script>
+    <title>맛집 추가하기</title>
+    <script>
+        function checkFrom(){
+            if ($('#resTitle').val().length <= 0){
+                alert("맛집 이름을 입력해주세요.")
+                $('#resTitle').focus()
+                return false
+            }else if($('#resLink').val().length <= 0){
+                alert("관련 링크를 입력해주세요.")
+                $('#resLink').focus()
+                return false
+            }else if($('#resContent').val().length <= 0){
+                alert("상세 내용을 입력해주세요.")
+                $('#resContent').focus()
+                return false
+            }else if($('#resLoc').val().length <= 0){
+                alert("장소 키워드를 입력해주세요.")
+                $('#resLoc').focus()
+                return false
+            }else{
+                return true
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="jumbotron">
+                <h1>맛집 상세보기</h1>
+                <p>made by Django</p>
+            </div>
+        </div>
+        <div class="content">
+            <div class="inputDiv">
+                <div class="input-group">
+                    <span class="input-group-addon" id="sizing-addon2">카테고리</span>
+                    <input id="resCategory" name="resCategory" type="text" class="form-control" disabled value="">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon" id="sizing-addon2">맛집 이름</span>
+                    <input id="resTitle" name="resTitle" type="text" class="form-control" disabled value="">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon" id="sizing-addon2">관련 링크</span>
+                    <input id="resLink" name="resLink" type="text" class="form-control" disabled value="">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon" id="sizing-addon2">상세 내용</span>
+                    <textarea id="resContent" name="resContent" cols="90" rows="10" disabled value=""></textarea>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon" id="sizing-addon2">장소 키워드</span>
+                    <input id="resLoc" name="resLoc" type="text" class="form-control" disabled value="">
+                </div>
+                <a href ="/" class="resAddBtn btn btn-info" role="button">홈으로</a>
+            </div>
+        </div>
+        <div class="panel-footer">
+            실전예제로 배우는 Django. Project1-TodoList
+        </div>
+    </div>
+</body>
+</html>
