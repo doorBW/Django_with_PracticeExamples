@@ -92,7 +92,7 @@
                         </div>
                     </form>
 
-                    <form action="" method="GET" onsubmit="return categoryAddCheckFrom();">
+                    <form action="" method="POST" onsubmit="return categoryAddCheckFrom();">{% csrf_token %}
                         <div class="input-group">
                             <input type="submit" class="resAddBtn btn btn-success" role="button" value="추가"/>
                             <input id="categoryName" name="categoryName" type="text" class="form-control" placeholder="추가할 카테고리명을 입력하세요." style="width:650px; float:right; border-radius:4px;">
