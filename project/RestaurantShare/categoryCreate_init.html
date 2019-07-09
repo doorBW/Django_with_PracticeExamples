@@ -88,11 +88,12 @@
                     <form action="" method="POST">{% csrf_token %}
                         <div class="input-group">
                             <span class="input-group-addon" id="" style="border:1px solid #ccc; border-radius: 4px;">한식</span>
+                            <input type="hidden" name="categoryId" id="categoryId" value=""/>
                             <input type="submit" class="resAddBtn btn btn-danger" role="button" value="삭제"/>
                         </div>
                     </form>
 
-                    <form action="" method="POST" onsubmit="return categoryAddCheckFrom();">{% csrf_token %}
+                    <form action="./create" method="POST" onsubmit="return categoryAddCheckFrom();">{% csrf_token %}
                         <div class="input-group">
                             <input type="submit" class="resAddBtn btn btn-success" role="button" value="추가"/>
                             <input id="categoryName" name="categoryName" type="text" class="form-control" placeholder="추가할 카테고리명을 입력하세요." style="width:650px; float:right; border-radius:4px;">
