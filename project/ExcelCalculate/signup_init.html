@@ -57,7 +57,7 @@
         <div class="content">
             <div class="userInfoInputDiv">
                 <h1> 회원가입 하기 </h1><br>
-                <form action="" type="POST" id="signup-form">{% csrf_token %}
+                <form action="" method="POST" id="signup-form">{% csrf_token %}
                     <div class="input-group">
                         <span class="input-group-addon">이름</span>
                         <input id="signupName" name='signupName' type="text" class="form-control" placeholder="이름을 적어주세요." aria-describedby="basic-addon1">
