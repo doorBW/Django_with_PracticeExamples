@@ -30,6 +30,18 @@
         }
 
     </style>
+    <script>
+        function submit_click(){
+            var pw = document.getElementById('signupPW').value
+            var pwcheck = document.getElementById('signupPWcheck').value
+            if(pw == pwcheck){
+                document.getElementById('signup-form').submit();
+            }else{
+                alert("비밀번호가 일치하지 않습니다.")
+                document.getElementById('signupPWcheck').focus()
+            }
+        }
+    </script>
     <title>Excel Calculate</title>
 </head>
 <body>
@@ -45,24 +57,24 @@
         <div class="content">
             <div class="userInfoInputDiv">
                 <h1> 회원가입 하기 </h1><br>
-                <form action="" type="POST">{% csrf_token %}
+                <form action="" type="POST" id="signup-form">{% csrf_token %}
                     <div class="input-group">
-                        <span class="input-group-addon" id="basic-addon1" name='singupName'>이름</span>
-                        <input type="text" class="form-control" placeholder="이름을 적어주세요." aria-describedby="basic-addon1">
+                        <span class="input-group-addon">이름</span>
+                        <input id="signupName" name='signupName' type="text" class="form-control" placeholder="이름을 적어주세요." aria-describedby="basic-addon1">
                     </div><br>
                     <div class="input-group">
-                        <span class="input-group-addon" id="basic-addon1" name='singupEmail'>이메일</span>
-                        <input type="email" class="form-control" placeholder="이메일을 적어주세요." aria-describedby="basic-addon1">
+                        <span class="input-group-addon">이메일</span>
+                        <input id="signupEmail" name='signupEmail' type="email" class="form-control" placeholder="이메일을 적어주세요." aria-describedby="basic-addon1">
                     </div><br>
                     <div class="input-group">
-                        <span class="input-group-addon" id="basic-addon1" name='singupPW'>비밀번호</span>
-                        <input type="password" class="form-control" placeholder="비밀번호를 적어주세요." aria-describedby="basic-addon1">
+                        <span class="input-group-addon">비밀번호</span>
+                        <input id="signupPW" name='signupPW' type="password" class="form-control" placeholder="비밀번호를 적어주세요." aria-describedby="basic-addon1">
                     </div><br>
                     <div class="input-group">
-                        <span class="input-group-addon" id="basic-addon1"  name='singupPWcheck'>비밀번호 확인</span>
-                        <input type="password" class="form-control" placeholder="비밀번호 적어주세요." aria-describedby="basic-addon1">
+                        <span class="input-group-addon">비밀번호 확인</span>
+                        <input id="signupPWcheck"  name='signupPWcheck' type="password" class="form-control" placeholder="비밀번호 적어주세요." aria-describedby="basic-addon1">
                     </div><br>
-                    <input type="submit" class="btn btn-primary btn-lg" value="회원가입하기">
+                    <input type="button" class="btn btn-primary btn-lg" id="btn-submit" onclick="submit_click();" value="회원가입하기">
                 </form>
                     
                 
