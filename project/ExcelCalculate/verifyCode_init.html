@@ -45,8 +45,8 @@
                 <h3>이메일로 전송된 메일의 인증코드를 입력해주세요.</h3><br>
                 <form action="" method="POST">{% csrf_token %}
                     <div class="input-group">
-                        <span class="input-group-addon" id="basic-addon1" name='verifyCode'>인증코드</span>
-                        <input type="text" class="form-control" placeholder="인증코드를 적어주세요." aria-describedby="basic-addon1">
+                        <span class="input-group-addon" id="basic-addon1">인증코드</span>
+                        <input name='verifyCode' type="text" class="form-control" placeholder="인증코드를 적어주세요." aria-describedby="basic-addon1">
                     </div><br>
                     <input type="submit" class="btn btn-success btn-lg" value="인증하기">
                 </form>
