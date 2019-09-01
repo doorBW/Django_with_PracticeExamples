@@ -44,12 +44,12 @@
                 <h3>안녕하세요. 로그인을 진행해주세요.</h3><br>
                 <form action="" method="POST">{% csrf_token %}
                     <div class="input-group">
-                        <span class="input-group-addon" id="basic-addon1" name='loginEmail'>이메일</span>
-                        <input type="email" class="form-control" placeholder="이메일을 적어주세요." aria-describedby="basic-addon1">
+                        <span class="input-group-addon" id="basic-addon1">이메일</span>
+                        <input type="email" name='loginEmail' class="form-control" placeholder="이메일을 적어주세요." aria-describedby="basic-addon1">
                     </div><br>
                     <div class="input-group">
-                        <span class="input-group-addon" id="basic-addon1" name='loginPW'>비밀번호</span>
-                        <input type="password" class="form-control" placeholder="비밀번호를 적어주세요." aria-describedby="basic-addon1">
+                        <span class="input-group-addon" id="basic-addon1">비밀번호</span>
+                        <input type="password" name='loginPW' class="form-control" placeholder="비밀번호를 적어주세요." aria-describedby="basic-addon1">
                     </div><br>
                     <input type="submit" class="btn btn-success btn-lg" value="로그인">
                 </form>
