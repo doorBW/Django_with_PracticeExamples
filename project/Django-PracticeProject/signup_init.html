@@ -1,0 +1,78 @@
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Boot strap -->
+    <!-- 합쳐지고 최소화된 최신 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+    <style>
+        .content{
+            height: 75%;
+        }
+        .panel-footer{
+            height:10%;
+            color:gray;
+        }
+        .userInfoInputDiv{
+            text-align: center;
+        }
+
+    </style>
+    <script>
+        function submit_click(){
+            var pw = document.getElementById('signupPW').value
+            var pwcheck = document.getElementById('signupPWcheck').value
+            if(pw == pwcheck){
+                document.getElementById('signup-form').submit();
+            }else{
+                alert("비밀번호가 일치하지 않습니다.")
+                document.getElementById('signupPWcheck').focus()
+            }
+        }
+    </script>
+    <title>실전 프로젝트</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="page-header">
+                <h1>실전 프로젝트 해결하기 <small>with Django</small></h1>
+            </div>
+        </div>
+        <div class="content">
+            <div class="userInfoInputDiv">
+                <h1> 회원가입 하기 </h1><br>
+                <form action="" method="POST" id="signup-form">{% csrf_token %}
+                    <div class="input-group">
+                        <span class="input-group-addon">이름</span>
+                        <input id="signupName" name='signupName' type="text" class="form-control" placeholder="이름을 적어주세요." aria-describedby="basic-addon1">
+                    </div><br>
+                    <div class="input-group">
+                        <span class="input-group-addon">이메일</span>
+                        <input id="signupEmail" name='signupEmail' type="email" class="form-control" placeholder="이메일을 적어주세요." aria-describedby="basic-addon1">
+                    </div><br>
+                    <div class="input-group">
+                        <span class="input-group-addon">비밀번호</span>
+                        <input id="signupPW" name='signupPW' type="password" class="form-control" placeholder="비밀번호를 적어주세요." aria-describedby="basic-addon1">
+                    </div><br>
+                    <div class="input-group">
+                        <span class="input-group-addon">비밀번호 확인</span>
+                        <input id="signupPWcheck"  name='signupPWcheck' type="password" class="form-control" placeholder="비밀번호 적어주세요." aria-describedby="basic-addon1">
+                    </div><br>
+                    <input type="button" class="btn btn-primary btn-lg" id="btn-submit" onclick="submit_click();" value="회원가입하기">
+                </form>
+                    
+                
+            </div>
+        </div>
+        <div class="panel-footer">
+            실전예제로 배우는 Django. Practice Project
+        </div>
+    </div>
+</body>
+</html>
