@@ -33,16 +33,16 @@
             <div class="signinDiv">
                 <form action="" method="POST">{% csrf_token %}
                     <div class="input-group">
-                        <span class="input-group-addon" id="basic-addon1" name='loginEmail'>이메일</span>
-                        <input type="email" class="form-control" placeholder="이메일을 적어주세요." style="width: 50%">
+                        <span class="input-group-addon" id="basic-addon1">이메일</span>
+                        <input name='loginEmail' type="email" class="form-control" placeholder="이메일을 적어주세요." style="width: 50%">
                     </div><br>
                     <div class="input-group">
-                        <span class="input-group-addon" id="basic-addon1" name='loginPW'>비밀번호</span>
-                        <input type="password" class="form-control" placeholder="비밀번호를 적어주세요." style="width: 50%">
+                        <span class="input-group-addon" id="basic-addon1">비밀번호</span>
+                        <input name='loginPW' type="password" class="form-control" placeholder="비밀번호를 적어주세요." style="width: 50%">
                     </div><br>
                     <input type="submit" class="btn btn-success btn-lg" value="로그인">
                 </form>
-                <a href="">회원가입하기</a>
+                <a href="signup/">회원가입하기</a>
             </div>
         </div>
         <div class="panel-footer">
