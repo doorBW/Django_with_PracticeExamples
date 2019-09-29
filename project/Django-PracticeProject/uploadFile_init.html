@@ -38,7 +38,7 @@
         </div>
         <div class="content">
             <h3>파일 업로드</h3>
-            <form action="" method="POST">{% csrf_token %}
+            <form action="" method="POST" enctype="multipart/form-data">{% csrf_token %}
                 <div class="input-group">
                     하단 버튼을 통해 파일을 업로드 해주세요.<br>
                     <input id="fileInput" name="fileInput" type="file" class="form-control">
