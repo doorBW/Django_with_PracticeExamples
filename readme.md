@@ -18,9 +18,11 @@ chapter5: <https://github.com/doorBW/Django-PracticeProject>
 
 문의 사항은 아래 이메일 또는 오픈 카카오톡 링크를 통해 연락주시면 빠른 시간안에 답변드릴 수 있습니다.
 
-Github : [github.com/doorbw](http://github.com/doorbw)
+Email : doorbw@outlook.com
 
 KaKaoTalk 1:1 채팅 : <https://open.kakao.com/o/sb2fD3H>
+
+Github : [github.com/doorbw](http://github.com/doorbw)
 
 개인블로그: <https://doorbw.tistory.com/>
 
