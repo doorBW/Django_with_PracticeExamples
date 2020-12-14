@@ -1,3 +1,20 @@
+# 오탈자 안내
+- p224. 소스코드 오타 안내
+책의 224페이지의 '코드3-16'에 있는 소스 중, 91번 라인의 '한식' 을 {{ category.category_name}} 으로 변경해주셔야 합니다.   
+
+책224페이지에 나와있는 소스 중 91번 라인
+```html
+<span class="input-group-addon" id="" style="border:1px solid #ccc; border-radius: 4px;">한식</span>
+```
+변경 후 91번 라인
+```html
+<span class="input-group-addon" id="" style="border:1px solid #ccc; border-radius: 4px;">{{ category.category_name }}</span>
+```
+
+불편을 드려 죄송합니다.    
+    
+    
+
 # Django 한그릇뚝딱 source code
 
 chapter2 ~ chapter5 까지의 총 4개 프로젝트에 대한
